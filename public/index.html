@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEN-AI Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css'>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="welcome-screen" class="screen active">
+            <h1>Welcome to GEN-AI <ion-icon name="chatbubbles-outline"></ion-icon></ion-icon></h1>
+            <p class="welcome-text">Experience the next generation of AI conversation. Sign up or log in to start chatting and explore your personal chat history.</p>
+
+            <div class="auth-buttons">
+                <button class="btn btn-primary" onclick="showAuthModal('signup')">Sign Up</button>
+                <button class="btn btn-secondary" onclick="showAuthModal('login')">Log In</button>
+            </div>
+            <p class="copyright">© 2024 Created by Bilal Ali</p>
+        </div>
+
+        <div id="chat-screen" class="screen">
+            <div id="chat-container">
+                <div id="chat-messages"></div>
+                <div class="input-area">
+                    <input type="text" id="user-input" placeholder="Type your message...">
+                    <button onclick="sendMessage()" class="send-button">
+                        <i class="fi fi-bs-paper-plane"></i>
+                        Send
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Sign Up</h2>
+            <form id="auth-form" onsubmit="handleAuth(event)">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                    <span class="error-message" id="email-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required autocomplete="on">
+                    <span class="error-message" id="password-error"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                
+                <p id="auth-switch" class="auth-switch">
+                    Already have an account? <a href="#" onclick="showAuthModal('login')">Log in</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
